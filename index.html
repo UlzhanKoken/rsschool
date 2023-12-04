@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #E1D4C9;
+;
+        }
+
+        header {
+         
+            padding: 15px 0;
+        }
+
+            .container {
+                width: 1360px;
+                margin: 0 auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+        .logo-left, .logo-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-left img {
+            max-width: 100px;
+            margin-right: 10px;
+        }
+
+        .logo-right img {
+            max-width: 100px;
+            margin-left: 10px;
+        }
+
+        nav {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        nav a {
+           
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: inline-block;
+        }
+        .image-container {
+      display: flex;
+      flex-wrap: wrap;
+      width: 1360px;
+      margin:0 auto;
+    }
+
+    .image-container img {
+      width: 50%;
+      height: auto;
+      box-sizing: border-box;
+      padding: 5px;
+    }
+    
+    .content-block {
+     
+     box-sizing: border-box;
+     padding: 20px;
+     margin: 10px;
+     
+   }
+
+   
+
+   .text {
+     margin-bottom: 10px;
+   }
+
+   .buttons {
+     display: flex;
+     
+   }
+
+   .button {
+     margin-right: 10px;
+     padding: 5px 10px;
+     background-color: #4CAF50;
+     color: white;
+     border: none;
+     border-radius: 4px;
+     cursor: pointer;
+   }
+
+   .image {
+ 
+     box-sizing: border-box;
+     padding: 20px;
+     margin: 10px;
+    
+   }
+
+   .image img {
+     width: 630px;
+     height: 630px;
+     height: auto;
+     
+   }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="logo-left">
+            <img src="imgs/logo.png" alt="Left Logo">
+        </div>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </nav>
+
+        <div class="logo-right">
+            <span>Menu</span>
+            <img src="imgs/coffee-cup.png" alt="Right Logo">
+        </div>
+    </div>
+</header>
+
+<div class="background-container">
+    <div class="container">
+        <div class="text-section">
+            <h2><span class="gray">Enjoy</span> premium coffee at our charming cafe</h2>
+            <p>With its inviting atmosphere and delicious coffee options, the Coffee House Resource is a popular destination for coffee lovers and those seeking a warm and inviting space to enjoy their favorite beverage..</p>
+            <button>Menu</button>
+        </div>
+        <div class="empty-space"></div>
+    </div>
+</div>
+
+<div id="slider-container">
+    <div id="slider">
+        <div class="slide">
+            <img src="imgs/coffee-slider-1.png" alt="Image 1">
+            <div class="info-container">
+                <h3>Title 1</h3>
+                <p>Some text about image 1</p>
+                <span>Price: $100</span>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="imgs/coffee-slider-2.png" alt="Image 2">
+            <div class="info-container">
+                <h3>Title 2</h3>
+                <p>Some text about image 2</p>
+                <span>Price: $150</span>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="imgs/coffee-slider-3.png" alt="Image 3">
+            <div class="info-container">
+                <h3>Title 3</h3>
+                <p>Some text about image 3</p>
+                <span>Price: $120</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="line-slider">
+        <div class="line" onclick="changeSlide(0)"></div>
+        <div class="line" onclick="changeSlide(1)"></div>
+        <div class="line" onclick="changeSlide(2)"></div>
+    </div>
+
+    <div id="circle-slider-left" onclick="prevSlide()">&#9664;</div>
+    <div id="circle-slider-right" onclick="nextSlide()">&#9654;</div>
+    <div id="circle-slider-center"></div>
+</div>
+
+
+<div class="image-container">
+
+    <img src="imgs/about-1.png" alt="Image 1">
+    <img src="imgs/about-2.png" alt="Image 2">
+    <img src="imgs/about-3.png" alt="Image 3">
+    <img src="imgs/about-4.png" alt="Image 4">
+
+</div>
+
+<div class="container">
+
+  <div class="content-block">
+    <div class="header">Заголовок</div>
+    <div class="text">Текст блока, описывающий что-то важное.</div>
+    <div class="buttons">
+      <button class="button">Кнопка 1</button>
+      <button class="button">Кнопка 2</button>
+    </div>
+  </div>
+
+  <div class="image">
+    <img src="imgs/mobile-screens.png" alt="Your Image">
+  </div>
+
+</div>
+
+
+<script>
+    let currentSlide = 0;
+
+    function changeSlide(index) {
+        currentSlide = index;
+        updateSlider();
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % 3;
+        updateSlider();
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + 3) % 3;
+        updateSlider();
+    }
+
+    function updateSlider() {
+        document.getElementById('slider').style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+</script>
+</body>
+</html>
